@@ -1,0 +1,51 @@
+[package]
+name = "pegfeed"
+version = "0.1.0"
+edition = "2024"
+authors = ["ZorroChain Foundation <hello@zorrochain.gold>"]
+license = "MPL-2.0"
+description = "Decentralized oracle and value index feed system for ZorroChain"
+repository = "https://github.com/zorrochain/pegfeed"
+
+[dependencies]
+# Core async runtime
+tokio = { version = "1", features = ["full"] }
+
+sha2 = "0.10"
+
+# HTTP client for API feeds
+reqwest = { version = "0.11", features = ["json", "rustls-tls", "blocking"] }
+
+# Time & timestamps
+chrono = { version = "0.4", features = ["serde"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Web API framework
+actix-web = { version = "4", features = ["rustls"] }
+
+# TLS (for manual cert loading)
+rustls = "0.21"
+rustls-pemfile = "1.0"
+
+# Logging
+log = "0.4"
+env_logger = "0.10"
+
+# Error handling
+anyhow = "1.0"
+thiserror = "1.0"
+
+# Command-line parsing (optional)
+clap = { version = "4", features = ["derive"] }
+
+# Post-quantum signing (optional, for snapshot validation)
+pqcrypto-dilithium = "0.5"
+pqcrypto-traits = "0.3"
+
+# Binary-to-text encoding (signature, hash)
+hex = "0.4"
+
+
